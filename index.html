@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css">
     <title>Weather App</title>
 </head>
@@ -16,15 +17,12 @@
         <div class="weather-app-wrapper">
             <div class="weather-app">
                 <div class="overview">
-                    <h1>
-                        Stockholm
+                    <h1 id="city">
                     </h1>
                     <ul>
-                        <li>
-                            Friday 05:00
+                        <li>Last updated: <span id="date"></span>
                         </li>
-                        <li>
-                            clear
+                        <li id="description">
                         </li>
                     </ul>
                 </div>
@@ -34,9 +32,9 @@
                             <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="clear"
                                 class="float-left" />
                             <div class="float-left">
-                                <strong>12</strong>
-                                <span calss="units">
-                                    <a href="#" class="toCelsius">°C</a>|<a href="#" class="toFahrenhied">°F</a>
+                                <strong id="temperature"></strong>
+                                <span class="units">
+                                    <a href="#">°C</a>|<a href="#">°F</a>
                                 </span>
                             </div>
                         </div>
@@ -44,13 +42,13 @@
                     <div class="col-6">
                         <ul>
                             <li>
-                                Precipitation: 0%
+                                Feels like: <span id="feels-like"></span>
                             </li>
                             <li>
-                                Humidity: 73%
+                                Humidity: <span id="humidity"></span>%
                             </li>
                             <li>
-                                Wind: 2 km/h
+                                Wind: <span id="wind"></span>km/h
                             </li>
                         </ul>
                     </div>
