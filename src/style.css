@@ -19,7 +19,7 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
-  color: rgb(135, 135, 135);
+  color: black;
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
@@ -40,8 +40,10 @@ a {
 
 .weather-app {
   padding: 50px;
-  border: 3px solid #dadde1;
+  border: 3px solid #bbdff5;
   border-radius: 8px;
+  background-image: linear-gradient(190deg, #ffffff 0%, #009efd 70%);
+  opacity: 0.9;
 }
 
 .overview {
@@ -81,7 +83,7 @@ a {
 }
 
 .line {
-  border-top: 3px solid rgb(135, 135, 135);
+  border-top: 3px solid white;
 }
 
 .weather-forecast {
@@ -89,28 +91,28 @@ a {
 }
 
 .weather-forecast h3 {
-  color: rgb(135, 135, 135);
-  font-size: 14px;
+  color: white;
+  font-size: 15px;
   text-align: center;
   font-weight: 400;
-  height: 15px;
+  height: 20px;
   line-height: 15px;
-  padding-top: 7px;
+  padding-top: 10px;
 }
 
 .weather-forecast img {
   display: block;
   margin: 0 auto;
-  height: 50px;
-  width: 50px;
+  height: 70px;
+  width: 70px;
 }
 
 .weather-forecast-temperature {
   text-align: center;
-  color: rgb(135, 135, 135);
-  font-size: 14px;
+  color: whitesmoke;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 15px;
+  line-height: 30px;
   height: auto;
   white-space: nowrap;
 }
