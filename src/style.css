@@ -3,7 +3,7 @@ body {
 }
 
 h1 {
-  color: #878787;
+  color: black;
   font-size: 24px;
   font-weight: 100;
   line-height: 28px;
@@ -19,7 +19,6 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
-
   color: rgb(135, 135, 135);
   font-size: 16px;
   font-weight: 100;
@@ -40,8 +39,8 @@ a {
 }
 
 .weather-app {
-  padding: 20px;
-  border: 2px solid #dadde1;
+  padding: 50px;
+  border: 3px solid #dadde1;
   border-radius: 8px;
 }
 
@@ -80,8 +79,13 @@ a {
 .parameters {
   text-align: center;
 }
+
+.line {
+  border-top: 3px solid rgb(135, 135, 135);
+}
+
 .weather-forecast {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .weather-forecast h3 {
