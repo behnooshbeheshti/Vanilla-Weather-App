@@ -33,6 +33,7 @@ li:first-letter {
 a {
   text-decoration: none;
 }
+
 .weather-app-wrapper {
   max-width: 600px;
   margin: 30px auto;
@@ -40,8 +41,8 @@ a {
 
 .weather-app {
   padding: 20px;
-  border: 1px solid #dadde1;
-  border-radius: 5px;
+  border: 2px solid #dadde1;
+  border-radius: 8px;
 }
 
 .overview {
@@ -74,4 +75,8 @@ a {
 
 .weather-temperature .active:hover {
   text-decoration: none;
+}
+
+.parameters {
+  text-align: center;
 }

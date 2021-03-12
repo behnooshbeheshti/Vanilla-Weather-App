@@ -18,12 +18,16 @@
             <div class="weather-app">
                 <form id="search-form" class="mb-3">
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-7">
                             <input type="search" placeholder="type a city..." class="form-control" id="city-input"
                                 autocomplete="off" />
                         </div>
-                        <div class="col-3">
-                            <input type="submit" value="search" class="btn btn-primary w-100" />
+                        <div class="col-2">
+                            <input type="submit" value="search" class="btn btn-primary" shadow-sm w-200 />
+                        </div>
+                        <div class="col-2">
+                            <input type="submit" value="Current" class="btn btn-success" id="current-temperature"
+                                shadow-sm w-200 />
                         </div>
                     </div>
                 </form>
@@ -51,17 +55,19 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <ul>
-                            <li>
-                                Feels like: <span id="feels-like"></span>
-                            </li>
-                            <li>
-                                Humidity: <span id="humidity"></span>%
-                            </li>
-                            <li>
-                                Wind: <span id="wind"></span>km/h
-                            </li>
-                        </ul>
+                        <div class="parameters">
+                            <ul>
+                                <li>
+                                    Visibility: <span id="visibility"></span>%
+                                </li>
+                                <li>
+                                    Humidity: <span id="humidity"></span>%
+                                </li>
+                                <li>
+                                    Wind: <span id="wind"></span>km/h
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
