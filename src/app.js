@@ -30,6 +30,7 @@ function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
+  let feelsLikeElement = document.querySelector("#feels-like");
   let visibilityElement = document.querySelector("#visibility");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
@@ -37,10 +38,14 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
 
   celsiusTemperature = response.data.main.temp;
+  feelsLike = response.data.main.feels_like;
+
   if (selectedUnit == "C") {
       temperatureElement.innerHTML = Math.round(celsiusTemperature);
+      feelsLikeElement.innerHTML = Math.round(feelsLike);
   } else {
       temperatureElement.innerHTML = Math.round((celsiusTemperature * 9)/5 +32);
+      feelsLikeElement.innerHTML = Math.round((feelsLike * 9)/5 +32);
   }
 
   cityElement.innerHTML = response.data.name;
@@ -100,6 +105,10 @@ function displayFahrenheitTemperature(event){
   let temperatureElement = document.querySelector("#temperature")
   let fahrenhietTemperature = (celsiusTemperature * 9)/5 +32;
   temperatureElement.innerHTML = Math.round(fahrenhietTemperature);
+
+  let feelsLikeElement = document.querySelector("#feels-like")
+  let feelsLikeFahrenhietTemperature = (feelsLike * 9)/5 +32;
+  feelsLikeElement.innerHTML = Math.round(feelsLikeFahrenhietTemperature);
 }
 
 function displayCelsiusTemperature(event){
@@ -109,6 +118,9 @@ function displayCelsiusTemperature(event){
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature")
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+  let feelsLikeElement = document.querySelector("#feels-like")
+  feelsLikeElement.innerHTML = Math.round(feelsLike);
 }
 
 function showcurrentLocation(position) {
@@ -124,6 +136,7 @@ function getCurrentPosition(event) {
 }
 
 let celsiusTemperature = null;
+let feelsLike = null;
 
 let selectedUnit = "C";
 
