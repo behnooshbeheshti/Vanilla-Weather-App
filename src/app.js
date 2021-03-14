@@ -35,7 +35,7 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
-
+  console.log(response);
   celsiusTemperature = response.data.main.temp;
   if (selectedUnit == "C") {
       temperatureElement.innerHTML = Math.round(celsiusTemperature);
