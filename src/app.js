@@ -50,7 +50,7 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
-  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
@@ -67,7 +67,7 @@ function displayForecast(response){
         <h3>
           ${formatHours(forecast.dt * 1000)}
         </h3>
-        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+        <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
         <div class="weather-forecast-temperature">
           <strong>${Math.round(forecast.main.temp_max)}°</strong> <small>${Math.round(forecast.main.temp_min)}°</small>
         </div>
