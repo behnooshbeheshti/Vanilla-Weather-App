@@ -131,13 +131,16 @@ function displayCelsiusTemperature(event){
 }
 
 function showcurrentLocation(position) {
+  let cityInputElement = document.querySelector("#city-input");
+  cityInputElement.value = "";
+
   let apiKey = "65ce7574d4f259033178f9fae0906779";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayTemperature);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
-   axios.get(apiUrl).then(displayForecast);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function getCurrentPosition(event) {
