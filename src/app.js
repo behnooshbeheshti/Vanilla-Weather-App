@@ -43,10 +43,10 @@ function displayTemperature(response) {
 
   if (selectedUnit == "C") {
       temperatureElement.innerHTML = Math.round(celsiusTemperature);
-      feelsLikeElement.innerHTML = Math.round(feelsLike);
+      feelsLikeElement.innerHTML = `${Math.round(feelsLike)}°`;
   } else {
       temperatureElement.innerHTML = Math.round((celsiusTemperature * 9)/5 +32);
-      feelsLikeElement.innerHTML = Math.round((feelsLike * 9)/5 +32);
+      feelsLikeElement.innerHTML = `${Math.round((feelsLike * 9)/5 +32)}°`;
   }
 
   cityElement.innerHTML = response.data.name;
