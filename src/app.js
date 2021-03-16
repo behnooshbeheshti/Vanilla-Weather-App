@@ -27,6 +27,7 @@ function formatHours(timestamp) {
 }
 
 function displayTemperature(response) {
+  responseTempreture = response
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -37,8 +38,8 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  celsiusTemperature = response.data.main.temp;
-  feelsLike = response.data.main.feels_like;
+  let celsiusTemperature = response.data.main.temp;
+  let feelsLike = response.data.main.feels_like;
 
   if (selectedUnit == "C") {
       temperatureElement.innerHTML = Math.round(celsiusTemperature);
@@ -60,13 +61,25 @@ function displayTemperature(response) {
 }
 
 function displayForecast(response){
+  responseForcast = response
   let forecastElement = document.querySelector("#forecast");
 
   forecastElement.innerHTML = null;
-  let forecast = null;
 
   for (let index = 0; index < 6; index++){
-    forecast = response.data.list[index];
+    let forecast = response.data.list[index];
+
+    let temp_max = null;
+    let temp_min = null;
+
+    if (selectedUnit == "C") {
+      temp_max = Math.round(forecast.main.temp_max);
+      temp_min = Math.round(forecast.main.temp_min);
+    } else {
+      temp_max = Math.round((forecast.main.temp_max * 9)/5 +32);
+      temp_min = Math.round((forecast.main.temp_min * 9)/5 +32);
+    }
+
     forecastElement.innerHTML +=`
       <div class="col-2">
         <h3>
@@ -74,7 +87,7 @@ function displayForecast(response){
         </h3>
         <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
         <div class="weather-forecast-temperature">
-          <strong>${Math.round(forecast.main.temp_max)}°</strong> <small>${Math.round(forecast.main.temp_min)}°</small>
+          <strong>${temp_max}°</strong> <small>${temp_min}°</small>
         </div>
       </div>
 `;
@@ -102,13 +115,9 @@ function displayFahrenheitTemperature(event){
   selectedUnit = "F";
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature")
-  let fahrenhietTemperature = (celsiusTemperature * 9)/5 +32;
-  temperatureElement.innerHTML = Math.round(fahrenhietTemperature);
 
-  let feelsLikeElement = document.querySelector("#feels-like")
-  let feelsLikeFahrenhietTemperature = (feelsLike * 9)/5 +32;
-  feelsLikeElement.innerHTML = Math.round(feelsLikeFahrenhietTemperature);
+  displayTemperature(responseTempreture);
+  displayForecast(responseForcast);
 }
 
 function displayCelsiusTemperature(event){
@@ -116,11 +125,9 @@ function displayCelsiusTemperature(event){
   selectedUnit = "C";
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature")
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 
-  let feelsLikeElement = document.querySelector("#feels-like")
-  feelsLikeElement.innerHTML = Math.round(feelsLike);
+  displayTemperature(responseTempreture);
+  displayForecast(responseForcast);
 }
 
 function showcurrentLocation(position) {
@@ -138,10 +145,10 @@ function getCurrentPosition(event) {
   navigator.geolocation.getCurrentPosition(showcurrentLocation);
 }
 
-let celsiusTemperature = null;
-let feelsLike = null;
-
 let selectedUnit = "C";
+
+let responseTempreture = null;
+let responseForcast = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
